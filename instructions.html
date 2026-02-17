@@ -1,1 +1,44 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Инструкция</title><link rel="stylesheet" href="styles.css"></head><body><div class="wrapper"><div class="tablet"><div class="topbar"><span>ИНСТРУКЦИЯ</span><span>Для новичка</span></div><div class="main"><button class="btn back" onclick="history.back()">◀ BACK</button><h1>Как менять сайт пошагово</h1><div class="card"><h2>1) Названия фракций</h2><p>Откройте <b>factions/factions.html</b>. Найдите кнопку, например: <code>Фракция 03</code>, и поменяйте текст.</p><p>Чтобы изменить заголовок самой страницы фракции, откройте <b>factions/faction_03.html</b> и строку с <code>ЗДЕСЬ НАЗВАНИЕ ФРАКЦИИ</code>.</p></div><div class="card"><h2>2) Текст</h2><p>В каждой странице есть явные заглушки: <code>ЗДЕСЬ ОСНОВНОЕ ОПИСАНИЕ</code>, <code>ЗДЕСЬ ВСТАВЬ СВОЙ ТЕКСТ</code>.</p><p>Пример: хотите изменить текст фракции? Откройте <b>factions/faction_03.html</b> и замените эти фразы на ваш текст.</p></div><div class="card"><h2>3) Изображения</h2><p>На страницах есть комментарий <code>&lt;!-- PLACE IMAGE HERE --&gt;</code>.</p><p>Хочешь изменить фото? Открой нужный файл, например <b>creatures/ha_0019.html</b>, и поменяй <code>src</code> у изображения в превью и миниатюрах.</p></div><div class="card"><h2>4) Пароли</h2><p>Все пароли хранятся в <b>script.js</b> в объекте <code>PASSWORDS</code>.</p><p>Хочешь изменить пароль — открой <b>script.js</b>, раздел <code>PASSWORDS</code>, найди нужный ключ и поменяй значение.</p></div><div class="card"><h2>5) Карта мира</h2><p>Открой <b>map/map.html</b>. В блоке с комментарием <code>&lt;!-- PLACE IMAGE HERE --&gt;</code> замени изображение карты.</p></div><div class="card"><h2>6) Важно</h2><p>Кнопки и переходы работают через JavaScript, поэтому не удаляйте <b>script.js</b> и атрибуты <code>onclick</code> у кнопок.</p></div></div><div class="bottombar"><span>Готово</span><span>index.html → instructions.html</span></div></div></div><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Инструкция</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="tablet">
+      <div class="topbar">
+        <span>TACTICAL TABLET // UNIT-7 // MODE: ARCHIVE</span>
+        <span class="center">ГЛАВНАЯ / ИНСТРУКЦИЯ</span>
+        <span class="right">SERIAL: TTN-94A-771-K // AUTH: GREEN</span>
+      </div>
+      <div class="main">
+        <aside class="sidebar">
+<div class="side-title">ГЛАВНЫЕ РАЗДЕЛЫ</div>
+<button class="btn" onclick="location.href='factions/factions.html'">[01] Фракции</button>
+<button class="btn" onclick="location.href='creatures/creatures.html'">[02] Существа Таниума</button>
+<button class="btn" onclick="location.href='records/records.html'">[03] Записи</button>
+<button class="btn" onclick="checkAndOpen('map','Карта мира','map/map.html')">[04] Карта мира</button>
+<button class="btn" onclick="location.href='instructions.html'">Инструкция</button>
+<p class="warn">Сначала выберите раздел слева.</p>
+</aside>
+        <section class="content">
+<button class="btn back" onclick="goBack()">◀ BACK</button>
+<div class="card"><h1>Инструкция по редактированию</h1>
+<p>Хочешь изменить текст фракции? Открой <b>factions/faction_03.html</b>, найди заглушки <code>ЗДЕСЬ ОСНОВНОЕ ОПИСАНИЕ</code> и <code>ЗДЕСЬ ВСТАВЬ СВОЙ ТЕКСТ</code>.</p>
+<p>Хочешь изменить название вкладки? Открой список раздела (например, <b>factions/factions.html</b>) и поменяй текст кнопки.</p>
+<p>Хочешь заменить фото? В нужной странице найди комментарий <code>&lt;!-- PLACE IMAGE HERE --&gt;</code> и поменяй <code>src</code> у превью и миниатюр.</p>
+<p>Хочешь изменить пароль — открой <b>script.js</b>, раздел <code>PASSWORDS</code>.</p>
+<p>Пример: изменить пароль существа HA-0019: <b>script.js</b> → <code>PASSWORDS.creatures['HA-0019']</code>.</p>
+</div>
+        </section>
+      </div>
+      <div class="bottombar"><span>OPS TIME: 24:19:07</span><span>СХЕМА НАВИГАЦИИ: ГЛАВНАЯ → РАЗДЕЛ → ВКЛАДКА → ПАРОЛЬ → КОНТЕНТ → BACK</span><span>STATUS: ONLINE</span></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  
+</body>
+</html>

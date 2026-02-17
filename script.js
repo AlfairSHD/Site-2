@@ -26,17 +26,17 @@ const PASSWORDS = {
   map:"MAP-77"
 };
 
-function goBack(){ if(history.length>1){history.back();} else {location.href='../index.html';} }
-function enlarge(src,alt){ const p=document.getElementById('preview'); if(p){ p.innerHTML=`<img src="${src}" alt="${alt}">`; } }
+function goBack(){ if(history.length>1){history.back();} else { location.href='../index.html'; } }
+function enlarge(src,alt){ const p=document.getElementById('preview'); if(p) p.innerHTML=`<img src="${src}" alt="${alt}">`; }
 function checkAndOpen(type,key,url){
-  const pass = prompt(`Введите пароль для ${key}`);
+  const pass=prompt(`Введите пароль для ${key}`);
   if(pass===null) return;
-  let valid=false;
-  if(type==='map'){ valid = pass===PASSWORDS.map; if(valid){ sessionStorage.setItem('access_map','ok'); } }
-  else { valid = PASSWORDS[type] && PASSWORDS[type][key]===pass; if(valid){ sessionStorage.setItem(`access_${type}_${key}`,'ok'); } }
-  if(valid){ location.href=url; } else { alert('Неверный пароль'); }
+  let ok=false;
+  if(type==='map'){ ok=pass===PASSWORDS.map; if(ok) sessionStorage.setItem('access_map','ok'); }
+  else { ok=PASSWORDS[type] && PASSWORDS[type][key]===pass; if(ok) sessionStorage.setItem(`access_${type}_${key}`,'ok'); }
+  if(ok) location.href=url; else alert('Неверный пароль');
 }
 function requireAccess(type,key){
   const token = type==='map' ? sessionStorage.getItem('access_map') : sessionStorage.getItem(`access_${type}_${key}`);
-  if(token!=='ok'){ alert('Сначала введите пароль на странице списка.'); location.href='../index.html'; }
+  if(token!=='ok'){ alert('Сначала откройте элемент через страницу списка и введите пароль.'); location.href='../index.html'; }
 }
